@@ -30,6 +30,8 @@ Search for your problem below and make the appropriate configuration changes.
   - [Item sorters don't always picking up items](#hopper-cooldown)
 - [Spawning](#spawning)
   - [Mob switch isn't working](#mob-switch-isnt-working)
+- [Villagers](#villagers)
+  - [Zombie villager cures only discount once](#curing-discount)
 - [Misc.](#misc)
   - [Bedrock isn't breaking](#bedrock)
   - [Ender-porter doesn't work](#ender-porter)
@@ -133,6 +135,22 @@ _Please be aware that CraftBukkit messes with the persistence code of mobs and c
 to be counted who otherwise wouldn't be in Vanilla. By enabling this config option, this issue
 may occur and you might experience a slow down in mob farms. But you're enabling this because
 you want to disable mob spawns with your mob switch, right?_
+
+### Villagers
+
+<a name="curing-discounts"/>
+
+#### Zombie villager cures only discount once
+Seen as an exploit by Paper and others, the team has patched this so that when you cure
+a zombie villager, all previous `MAJOR_POSITIVE` reputation is removed, so you will not
+receive further discounts by curing the same villager multiple times. You can disable
+this fix.
+
+In `paper.yml` set the following:
+```yaml
+game-mechanics:
+  fix-curing-zombie-villager-discount-exploit: false
+```
 
 ### Misc.
 
