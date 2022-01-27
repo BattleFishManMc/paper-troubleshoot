@@ -7,7 +7,7 @@ experience when playing on CraftBukkit forks.
 
 Out of the box, Spigot can modify, or more specifically nerf, certain aspects of gameplay.
 While these changes may not be noticeable to the purists of survival gameplay, you may find
-things are not functioning as you expect them to when you expand you gameplay horizons.
+things are not functioning as you expect them to when you expand your gameplay horizons.
 Maybe you found a cool farm you want to build but after building it you noticed something
 isn't quite right and it's not matching up with the farm's showcase.
 
@@ -100,7 +100,7 @@ at a rate of 8 game ticks, so if a item filter hopper does go in to cooldown, it
 deal because by the time the next item is ready to be tested, the 8gt cooldown will have ended.
 
 When feeding items into an item sorting system using a water stream, items move over the
-hoppers at a rate greater than 8 game ticks. If an item flows over an item filter but fails
+hoppers at a rate faster than 8 game ticks. If an item flows over an item filter but fails
 to get picked up because it is not the right item for that filter, the filter will still go
 in to cooldown. If another item comes through the water stream in less than 8 game ticks,
 the filter will still be in cooldown so even if its the right item type, it'll flow right over it.
