@@ -114,7 +114,7 @@ to not cooldown the hopper all the time.
 In `paper.yml` set the following:
 ```yaml
 hopper:
-  cooldown-when-full: true
+  cooldown-when-full: false
 ```
 
 ### Spawning
