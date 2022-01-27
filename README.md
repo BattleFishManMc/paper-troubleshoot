@@ -106,7 +106,7 @@ in to cooldown. If another item comes through the water stream in less than 8 ga
 the filter will still be in cooldown so even if its the right item type, it'll flow right over it.
 
 A solution to this could be to alter your water stream to build up items, maybe with a trapdoor
-and hopper clock, and then release all items at the same tick to flow over the hoppers together.
+and hopper clock, and then release all items at the same time to flow over the hoppers together.
 
 If you're too lazy to make this modification to your water stream, you can configure Paper
 to not cooldown the hopper all the time.
@@ -165,5 +165,5 @@ to disable this patch.
 In `paper.yml` set the following:
 ```yaml
 game-mechanics:
-  disable-unloaded-chunk-enderpearl-exploit: true
+  disable-unloaded-chunk-enderpearl-exploit: false
 ```
