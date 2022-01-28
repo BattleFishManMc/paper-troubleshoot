@@ -1,15 +1,16 @@
 # Spigot/Paper Common Exploit Issues
 
-This document is here to offer configuration suggestions for common problems people 
+This document offers configuration suggestions for common problems people 
 experience when playing on CraftBukkit forks.
 
 ## The "Problem"
 
 Out of the box, Spigot can modify, or more specifically nerf, certain aspects of gameplay.
 While these changes may not be noticeable to the purists of survival gameplay, you may find
-things are not functioning as you expect them to when you expand your gameplay horizons.
-Maybe you found a cool farm you want to build but after building it you noticed something
-isn't quite right and it's not matching up with the farm's showcase.
+things not functioning as you expect them to when expanding your gameplay horizons.
+
+Maybe you found a cool farm you want to build, after building it, you noticed something
+isn't quite right and it's not matching the farm's showcase.
 
 Paper, a fork of Spigot, and more widely used, makes further modifications to the game.
 It does fix a lot of Spigots issues, and it is highly recommended you use it over Spigot.
@@ -43,7 +44,7 @@ Search for your problem below and make the appropriate configuration changes.
 #### Sand/gravity block duping isn't working
 
 Gravity block dupes are patched by Paper when they become aware of them. Paper does **not** 
-offer a configuration option to re-enable duping. You can see discussion behind this in
+offer a configuration option to re-enable duping. You can see the discussion behind this at
 [PaperMC@Paper#3724](https://github.com/PaperMC/Paper/issues/3724).
 
 If you want gravity block duping, look into playing either Vanilla or Fabric with optimisation
@@ -51,7 +52,9 @@ mods, however, if you REALLY must run a Bukkit variant, you can replace Paper wi
 which undoes, or modifies, the patch. A popular Paper fork that does this is
 [Purpur](https://purpurmc.org).
 
-If using Purpur, in `purpur.yml` set the following:
+##### Purpur
+
+In `purpur.yml` set the following:
 ```yaml
 blocks:
   sand:
@@ -75,7 +78,7 @@ such as carpet duping and rail duping._
 #### TNT in world eater isn't falling
 
 Spigot limits the amount of TNT entities that can be processed per game tick. World eaters use
-a very large amount of TNT entities to blow up the world and will very easily hit this limit
+a very large amount of TNT entities to eat the world and will very easily hit this limit
 where its physics and aging won't update. This is configurable.
 
 In `spigot.yml` change the following setting:
@@ -84,8 +87,9 @@ max-tnt-per-tick: 1000
 ```
 
 You can try and calculate the amount of TNT active at a given time during your world eating and
-set a max value slightly above this, or if you don't care, you can set this absurdly high.
-Unfortunately Spigot does not offer a value that outright disables this.
+set a max value slightly above this, or alternatively, you can set this absurdly high.
+
+_Unfortunately Spigot does not offer a value that outright disables this._
 
 ### Items
 
@@ -95,13 +99,13 @@ Unfortunately Spigot does not offer a value that outright disables this.
 
 Paper makes optimizations to the logic of hoppers, however, included is a change in how
 hoppers cooldown. In vanilla, a hopper only cools-down when an item is moved to or from
-its inventory. In Paper, a hopper cools-down when item movement is attempted. 
+its inventory. In Paper, a hopper cools-down when an item movement is attempted. 
 
-This shouldn't be an issue when using a hopper chain because the chain can only move items 
-at a rate of 8 game ticks, so if a item filter hopper does go in to cooldown, it's no big 
-deal because by the time the next item is ready to be tested, the 8gt cooldown will have ended.
+This shouldn't be an issue when using a hopper chain as they only move items at a rate of
+8 game ticks. If a item filter hopper does go in to cooldown the 8gt cooldown will have 
+ended before the hopper is ready to be tested again.
 
-When feeding items into an item sorting system using a water stream, items move over the
+However when feeding items into an item sorting system using a water stream, items move over the
 hoppers at a rate faster than 8 game ticks. If an item flows over an item filter but fails
 to get picked up because it is not the right item for that filter, the filter will still go
 in to cooldown. If another item comes through the water stream in less than 8 game ticks,
@@ -110,8 +114,7 @@ the filter will still be in cooldown so even if its the right item type, it'll f
 A solution to this could be to alter your water stream to build up items, maybe with a trapdoor
 and hopper clock, and then release all items at the same time to flow over the hoppers together.
 
-If you're too lazy to make this modification to your water stream, you can configure Paper
-to not cooldown the hopper all the time.
+Or you can configure Paper to not cooldown the hopper.
 
 In `paper.yml` set the following:
 ```yaml
